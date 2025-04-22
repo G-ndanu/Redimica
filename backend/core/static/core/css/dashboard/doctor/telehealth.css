@@ -1,0 +1,395 @@
+/* General Styles */
+body {
+   font-family: Arial, sans-serif;
+   background-color: #f9f9f9;
+   color: #333;
+   margin: 0;
+   padding: 0;
+}
+
+h2 {
+   font-size: 24px;
+   font-weight: bold;
+   color: #2c3e50;
+   margin-bottom: 15px;
+   text-align: center;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+ul {
+   padding-left: 20px;
+}
+
+li {
+   list-style: none;
+   margin-bottom: 10px;
+}
+
+/* Telehealth Container */
+.telehealth-container {
+   width: 90%;
+   max-width: 1200px;
+   margin: 80px auto;
+   background-color: #ffffff;
+   border-radius: 12px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   padding: 30px;
+   transition: all 0.3s ease;
+}
+
+.telehealth-container:hover {
+   transform: scale(1.02);
+}
+
+.telehealth-container h2 {
+   font-size: 26px;
+   margin-bottom: 20px;
+   text-align: center;
+   color: #2c3e50;
+}
+
+/* Consultation Card */
+.consultation-card {
+   background-color: #e0f7ff;
+   padding: 25px;
+   margin-bottom: 30px;
+   border-radius: 10px;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease;
+}
+
+.consultation-card:hover {
+   transform: translateY(-5px);
+}
+
+.consultation-card h2 {
+   font-size: 22px;
+   color: #2c3e50;
+   margin-bottom: 20px;
+   text-align: left;
+}
+
+/* Patient Selection */
+.search-container {
+   margin-bottom: 30px;
+}
+
+.search-container form {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.search-container input[type="text"] {
+   padding: 12px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   font-size: 16px;
+   width: 100%;
+   margin-bottom: 15px;
+   transition: border-color 0.3s;
+}
+
+.search-container input[type="text"]:focus {
+   border-color: #50a41c;
+}
+
+.search-container ul {
+   padding-left: 0;
+   margin-top: 15px;
+}
+
+.search-container li {
+   padding: 12px;
+   background-color: #f9f9f9;
+   margin-bottom: 8px;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.search-container li:hover {
+   background-color: #bfeffa;
+}
+
+.search-container a {
+   color: #2c3e50;
+   font-size: 16px;
+}
+
+.search-container a:hover {
+   text-decoration: underline;
+}
+
+#searchPatientBtn {
+   background-color: #50a41c; /* Primary green */
+   color: white; /* Text color */
+   font-size: 16px;
+   font-weight: bold;
+   border: none;
+   border-radius: 5px;
+   padding: 10px 15px;
+   cursor: pointer;
+   transition: background 0.3s, transform 0.2s;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#searchPatientBtn:hover {
+   background-color: #0cc0df; /* Hover color */
+   transform: scale(1.05); /* Slight pop effect */
+}
+
+/* Scheduling Form */
+.consultation-card form {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.consultation-card label {
+   font-size: 16px;
+   margin-bottom: 5px;
+   font-weight: bold;
+}
+
+.consultation-card input[type="date"],
+.consultation-card input[type="time"],
+.consultation-card select,
+.consultation-card input[type="text"] {
+   padding: 12px;
+   border-radius: 8px;
+   border: 1px solid #ccc;
+   font-size: 16px;
+   width: 100%;
+   transition: border-color 0.3s ease;
+}
+
+.consultation-card input[type="date"]:focus,
+.consultation-card input[type="time"]:focus,
+.consultation-card select:focus {
+   border-color: #50a41c;
+}
+
+.consultation-card input[type="text"]:focus {
+   border-color: #50a41c;
+}
+
+.consultation-card button[type="submit"] {
+   background-color: #50a41c;
+   color: white;
+   border: none;
+   border-radius: 8px;
+   padding: 14px 22px;
+   font-size: 18px;
+   font-weight: bold;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.consultation-card .scheduleBtn[type="submit"]:hover {
+   background-color: #0cc0df;
+   transform: translateY(-2px);
+}
+
+.selected-patient {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e0f7ff; /* Light blue background */
+    color: #2c3e50; /* Dark text for contrast */
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.selected-patient span {
+    color: #0cc0df; /* Highlighted green */
+    font-weight: bold;
+}
+
+#scheduleBtn {
+   background-color: #50a41c; /* Primary green */
+   color: white; /* Text color */
+   font-size: 16px;
+   font-weight: bold;
+   border: none;
+   border-radius: 5px;
+   padding: 12px 18px;
+   cursor: pointer;
+   transition: background 0.3s, transform 0.2s;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   display: block;
+   width: 100%; /* Make it full width */
+   text-align: center;
+   margin-top: 10px;
+}
+
+#scheduleBtn:hover {
+   background-color: #0cc0df; /* Hover color */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow */
+}
+
+/* General Appointments Container */
+.appointments-container {
+   width: 90%;
+   max-width: 1200px;
+   background: #ffffff;
+   border-radius: 8px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   margin: 20px auto;
+}
+
+/* Section Title */
+.appointments-container h2 {
+   font-size: 22px;
+   color: #2c3e50;
+   border-bottom: 2px solid #0cc0df;
+   padding-bottom: 10px;
+   margin-bottom: 15px;
+}
+
+/* Appointment Card */
+.appointment-card {
+   background: #e0f7ff;
+   padding: 15px;
+   border-left: 5px solid #0cc0df;
+   border-radius: 8px;
+   margin-bottom: 15px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Styling */
+.appointment-card p {
+   font-size: 16px;
+   color: #333;
+   margin: 5px 0;
+}
+
+/* Join Button */
+.join-btn {
+   display: inline-block;
+   background: #0cc0df;
+   color: #ffffff;
+   text-decoration: none;
+   font-weight: bold;
+   padding: 8px 12px;
+   border-radius: 5px;
+   transition: background 0.3s ease-in-out;
+}
+
+.join-btn:hover {
+   background: #50a41c;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   .telehealth-container {
+       width: 95%;
+       padding: 20px;
+   }
+
+   .consultation-card {
+       padding: 20px;
+   }
+
+   .consultation-card form {
+       flex-direction: column;
+   }
+
+   .consultation-card input[type="date"],
+   .consultation-card input[type="time"],
+   .consultation-card select,
+   .consultation-card button[type="submit"] {
+       font-size: 14px;
+       padding: 10px;
+   }
+
+   .appointments-container {
+      width: 95%;
+  }
+
+  .join-btn {
+      font-size: 14px;
+      padding: 8px 12px;
+  }
+}
+
+.hidden {
+   display: none;
+}
+
+
+/* Feedback input area */
+.feedback-area {
+   padding: 15px;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   background-color: #f9f9f9;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   margin-top: 10px;
+   transition: opacity 0.3s ease;
+}
+
+/* Input area */
+.feedback-input {
+   width: 100%;
+   height: 100px;
+   padding: 12px;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   resize: vertical;
+   font-size: 14px;
+   margin-bottom: 10px;
+   box-sizing: border-box;
+   background-color: #fff;
+}
+
+/* Save button */
+.save-feedback-btn {
+   background-color: #0cc0df;
+   color: white;
+   padding: 12px 18px;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 14px;
+   width: 100%;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-feedback-btn:hover {
+   background-color: #50a41c;
+   transform: translateY(-2px);
+}
+
+/* Feedback button (Add feedback) */
+.add-feedback-btn {
+   background-color: #0cc0df;
+   color: white;
+   padding: 12px 18px;
+   border: none;
+   border-radius: 8px;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-feedback-btn:hover {
+   background-color: #50a41c;
+   transform: translateY(-2px);
+}
+
+/* Optional: Add some spacing between cards for better layout */
+.appointment-card {
+   margin-bottom: 15px;
+}
+

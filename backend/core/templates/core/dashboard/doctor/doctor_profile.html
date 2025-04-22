@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Redimica</title>
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/doctor.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/doctor_profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    {% include "core/dashboard/doctor/includes/header.html" %}
+    
+    <main class="profile-container">
+        <button class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i> Back</button>
+        <h1>Dr. {{ doctor.first_name }} {{ doctor.last_name }}'s Profile</h1>
+
+        <!-- Personal Info Card -->
+        <section class="personal-info">
+            <div class="profile-photo">
+                <img src="{% if doctor.profile_picture %}{{ doctor.profile_picture.url }}{% else %}/static/core/images/default-doctor.jpg{% endif %}" alt="Doctor's profile picture">
+                <button class="edit-photo" onclick="editPhoto()"><i class="fas fa-pencil-alt"></i></button>
+            </div>            
+            <div class="info-details">
+                <h2>{{ doctor.first_name }} {{ doctor.last_name }}</h2>
+                <p><strong>Specialty:</strong> {{ doctor.specialty }}</p>
+                <p><strong>Gender:</strong> {{ doctor.gender }}</p>
+                <p><strong>Contact:</strong> {{ doctor.contact_number }}</p>
+            </div>
+        </section>
+
+        <!-- Medical Info Section -->
+        <section class="medical-info">
+            <h2>Medical Information</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>Qualifications</h3>
+                    <p id="doctor-qualifications">{{ doctor.qualifications }}</p>
+                    <button class="edit-btn" onclick="editInfo('qualifications')">Edit</button>
+                </div>
+                <div class="info-card">
+                    <h3>Affiliations</h3>
+                    <p id="doctor-affiliations">{{ doctor.affiliations }}</p>
+                    <button class="edit-btn" onclick="editInfo('affiliations')">Edit</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Modal for Editing Information -->
+        <div id="editModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">Edit Information</div>
+                <form id="edit-form">
+                    <input type="text" id="edit-field" placeholder="Enter new information" required />
+                    <button type="submit">Save</button>
+                </form>
+                <span class="modal-close" onclick="closeModal()">X</span>
+            </div>
+        </div>
+
+        <!-- Modal for Editing Profile Picture -->
+        <div id="photoModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">Change Profile Picture</div>
+                <form id="photo-form">
+                    <input type="file" id="profile-picture" required />
+                    <button type="submit">Upload</button>
+                </form>
+                <span class="modal-close" onclick="closePhotoModal()">X</span>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="{% static 'core/js/doctor_profile.js' %}"></script>
+    <script src="{% static 'core/js/dashboard.js' %}"></script>
+</body>
+</html>

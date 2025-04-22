@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="checkAccess('doctor')">
+    <header>
+        <h2>Doctor Dashboard</h2>
+        <button onclick="logout()">Logout</button>
+    </header>
+
+    <aside>
+        <button onclick="navigate('patients')">Patients</button>
+        <button onclick="navigate('messages')">Messages</button>
+        <button onclick="navigate('consultations')">Consultations</button>
+    </aside>
+
+    <main id="content-area">
+        <p>Welcome to your dashboard, Doctor!</p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

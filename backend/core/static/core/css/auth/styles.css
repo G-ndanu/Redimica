@@ -1,0 +1,152 @@
+/* General Reset */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Arial, sans-serif; /* Modern font */
+}
+
+/* Body Styling */
+body {
+   background: url('/static/core/images/background.jpg') no-repeat center center fixed;
+   background-size: cover;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh; /* Full screen height */
+   margin: 0;
+}
+
+/* Common Styling for Both Login & Signup */
+.form-container {
+   background: #bfeffa; /* White with slight transparency */
+   padding: 25px;
+   border-radius: 10px;
+   text-align: center;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo inside the form */
+.form-logo {
+   width: 150px;
+   margin-bottom: 10px;
+}
+
+/* Heading Styling */
+.form-container h2 {
+   margin-bottom: 15px;
+   font-size: 24px;
+   color: #2c3e50;
+}
+
+/* Form Styling */
+form {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+/* Label Styling */
+label {
+   font-size: 14px;
+   color: #555;
+   text-align: left;
+}
+
+/* Input Field Styling */
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #e0f7ff;
+   border-radius: 5px;
+   font-size: 14px;
+   color: #333;
+   transition: border-color 0.3s ease;
+   background: #f9f9f9;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus {
+   border-color: #50a41c;
+   outline: none;
+}
+
+/* Button Styling */
+button[type="submit"] {
+   background-color: #50a41c;
+   color: #ffffff;
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+   background-color: #0cc0df;
+}
+
+/* Link Styling */
+p {
+   margin-top: 15px;
+   font-size: 14px;
+   color: #555;
+}
+
+p a {
+   color: #50a41c;
+   text-decoration: none;
+   transition: color 0.3s ease;
+}
+
+p a:hover {
+   color: #0cc0df;
+}
+
+/* 🌟 LOGIN PAGE SPECIFIC STYLING */
+.login-container {
+   width: 320px; /* Compact login form */
+}
+
+/* 🌟 SIGNUP PAGE SPECIFIC STYLING */
+.signup-container {
+   width: 500px; /* Wider for more fields */
+}
+
+/* First Name & Last Name Side-by-Side */
+.name-fields {
+   display: flex;
+   gap: 15px;
+}
+
+.name-fields input {
+   width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+   .signup-container {
+       width: 100%;
+       padding: 20px;
+   }
+
+   .name-fields {
+       flex-direction: column; /* Stack fields on small screens */
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+

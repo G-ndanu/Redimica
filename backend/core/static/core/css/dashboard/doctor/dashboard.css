@@ -1,0 +1,181 @@
+/* General Styles */
+body {
+   font-family: Arial, sans-serif;
+   background: #f9f9f9;
+   color: #333;
+   margin: 0;
+   padding: 20px;
+}
+
+/* General Dashboard Container */
+.dashboard-container {
+   width: 90%;
+   max-width: 1400px;
+   margin: 80px auto;
+   padding: 20px;
+   background: white;
+   border-radius: 8px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.dashboard-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: #bfeffa;
+   padding: 15px 20px;
+   border-radius: 8px;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+/* Time Filters */
+.time-filters {
+   display: flex;
+   gap: 10px;
+}
+
+.time-filters button {
+   background: #50a41c;
+   color: white;
+   border: none;
+   padding: 10px 15px;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 14px;
+   transition: background 0.3s;
+}
+
+.time-filters button:hover {
+   background: #0cc0df;
+}
+
+/* Status Overview Cards */
+.status-cards {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 20px;
+   margin-top: 20px;
+}
+
+.status-card {
+   background: linear-gradient(135deg, #bfeffa, #e0f7ff);
+   padding: 20px;
+   border-radius: 12px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   transition: transform 0.3s ease-in-out;
+}
+
+.status-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.status-card i {
+   font-size: 32px;
+   color: #50a41c;
+   background: white;
+   padding: 10px;
+   border-radius: 50%;
+   margin-bottom: 10px;
+}
+
+.status-card h3 {
+   font-size: 18px;
+   color: #2c3e50;
+   margin-bottom: 8px;
+}
+
+.status-card p {
+   font-size: 16px;
+   font-weight: bold;
+   color: #555;
+}
+
+/* Priority Patients Section */
+.priority-section {
+   margin-top: 30px;
+   background: #e0f7ff;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.priority-section h2 {
+   font-size: 22px;
+   color: #2c3e50;
+   margin-bottom: 15px;
+}
+
+.priority-list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.priority-list li {
+   display: flex;
+   align-items: center;
+   background: #f9f9f9;
+   padding: 12px;
+   margin-bottom: 10px;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+   font-size: 16px;
+   color: #555;
+}
+
+.priority-list li:hover {
+   background: #bfeffa;
+   transform: scale(1.02);
+}
+
+/* Schedule Preview */
+.schedule-preview {
+   margin-top: 30px;
+   background: white;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-preview h2 {
+   font-size: 22px;
+   color: #2c3e50;
+   margin-bottom: 15px;
+}
+
+/* Quick Actions Bar */
+.quick-actions {
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+   margin-top: 25px;
+   flex-wrap: wrap;
+}
+
+.quick-actions .btn {
+   background: #50a41c;
+   color: white;
+   border: none;
+   padding: 12px 20px;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 16px;
+   font-weight: bold;
+   text-transform: uppercase;
+   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   min-width: 200px;
+   transition: all 0.3s ease;
+}
+
+.quick-actions .btn:hover {
+   background: #0cc0df;
+   transform: scale(1.05);
+}

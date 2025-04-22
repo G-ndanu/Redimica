@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Virtual Visits | Redimica</title>
+   <link rel="stylesheet" href="{% static 'core/css/dashboard/patient/patient.css' %}">
+   <link rel="stylesheet" href="{% static 'core/css/dashboard/patient/virtual_visits.css' %}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    {% include "core/dashboard/patient/includes/header.html" %}
+
+    <main>
+        <div class="telehealth-container">
+            <h2>Virtual Visits</h2>
+    
+            <!-- Upcoming Appointments Section -->
+            <section id="upcomingPatientAppointments">
+                <h3>Upcoming Consultations</h3>
+                <div id="upcomingConsultationsList">
+                    <p>Loading upcoming consultations...</p>
+                </div>
+            </section>
+    
+            <!-- Past Appointments Section -->
+            <section id="pastPatientAppointments">
+                <h3>Past Consultations</h3>
+                <div id="pastConsultationsList">
+                    <p>Loading past consultations...</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="{% static 'core/js/dashboard.js' %}"></script>
+    <script src="{% static 'core/js/virtual_visits.js' %}"></script>
+</body>
+</html>

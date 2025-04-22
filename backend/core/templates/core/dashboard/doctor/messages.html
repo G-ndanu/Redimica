@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{% csrf_token %}">
+    <title>Messages | Redimica</title>
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/doctor.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/messaging.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+</head>
+<body class="doctor">
+
+   {% include "core/dashboard/doctor/includes/header.html" %}
+
+   <div class="chat-container">
+        <!-- Sidebar: List of Chats -->
+        <div class="chat-sidebar">
+            <h2>Chats</h2>
+
+            <!-- Search Bar for Finding Contacts -->
+            <div class="search-container">
+                {% csrf_token %}
+                <form class="search-form" onsubmit="return false;">
+                    <input type="text" id="searchInput" name="q" placeholder="Search contacts..." autocomplete="off">
+                    <button type="button" id="searchChatBtn"><i class="fas fa-search"></i></button>
+                </form>
+                <div id="search-results"></div>  <!-- Search results container -->
+            </div>
+            
+
+            <!-- Recent Chats Container (Chats Will Load Here) -->
+            <div id="chatListContainer"></div>
+        </div>
+
+
+        <!-- Main Chat Window -->
+        <div class="chat-main">
+            <!-- Chat Header (Always Visible) -->
+            <div class="chat-header">
+                <h3 id="chatTitle">Select a chat</h3>
+            </div>
+        
+            <div class="chat-box" id="chatBox">
+                <!-- No chat selected screen -->
+                <div id="no-chat-selected" class="no-chat-selected">
+                    <img src="{% static 'core/images/Redimica1.png' %}" alt="Redimica Logo" class="no-chat-logo">
+                    <p>Select a conversation to start messaging</p>
+                </div>
+            </div>
+        
+            <!-- Message Input -->
+            <div id="chatInputContainer" class="chat-input hidden">
+                <label for="fileInput" class="file-clip"><i class="fas fa-paperclip"></i></label>
+                <input type="file" id="fileInput" accept="image/*, .pdf, .doc, .docx" hidden>
+                <div id="filePreview" class="file-preview" style="display: none;"></div>
+                <input type="text" id="messageInput" placeholder="Type a message..." required>
+                <button type="submit" id="sendButton"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        
+
+   <script src="{% static 'core/js/dashboard.js' %}"></script>
+   <script src="{% static 'core/js/messaging.js' %}"></script>
+   
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Profile | Redimica</title>
+   <link rel="stylesheet" href="{% static 'core/css/dashboard/patient/patient.css' %}">
+   <link rel="stylesheet" href="{% static 'core/css/dashboard/patient/profile.css' %}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+   {% include "core/dashboard/patient/includes/header.html" %}
+   
+   <main class="profile-container">
+       <button class="back-btn" onclick="history.back()"><i class="fas fa-arrow-left"></i> Back</button>
+       <h1>{{ patient.first_name }} {{ patient.last_name }}'s Profile</h1>
+       
+       <!-- Personal Info Card -->
+       <section class="personal-info">
+           <div class="profile-photo">
+               <img src="{% if patient.profile_picture %}{{ patient.profile_picture.url }}{% else %}/static/core/images/default-patient.jpg{% endif %}" alt="Patient's profile picture">
+               <button class="edit-photo" onclick="editPhoto()"><i class="fas fa-pencil-alt"></i></button>
+           </div>
+           <div class="info-details">
+               <h2>{{ patient.first_name }} {{ patient.last_name }}</h2>
+               <p><strong>Age:</strong> <span id="patient-age">{{ patient.age }}</span></p>
+               <p><strong>Gender:</strong> <span id="patient-gender">{{ patient.gender }}</span></p>
+               <p><strong>Date of Birth:</strong> <span id="patient-date_of_birth">{{ patient.date_of_birth }}</span></p>
+               <p><strong>Contact:</strong> <span id="patient-contact_number">{{ patient.contact_number }}</span></p>
+               <p><strong>Emergency Contact:</strong> 
+                  <span id="patient-emergency_contact_name">{{ patient.emergency_contact_name }}</span> - 
+                  <span id="patient-emergency_contact_number">{{ patient.emergency_contact_number }}</span>
+               </p>
+           </div>
+       </section>
+
+       <!-- Medical Info Section -->
+       <section class="medical-info">
+           <h2>Medical Information</h2>
+           <div class="info-cards">
+               <div class="info-card">
+                   <h3>Blood Type</h3>
+                   <p id="patient-blood_type">{{ patient.blood_type }}</p>
+                   <button class="edit-btn" onclick="editInfo('blood_type')">Edit</button>
+               </div>
+               <div class="info-card">
+                   <h3>Allergies</h3>
+                   <p id="patient-allergies">{{ patient.allergies }}</p>
+                   <button class="edit-btn" onclick="editInfo('allergies')">Edit</button>
+               </div>
+               <div class="info-card">
+                   <h3>Chronic Conditions</h3>
+                   <p id="patient-chronic_conditions">{{ patient.chronic_conditions }}</p>
+                   <button class="edit-btn" onclick="editInfo('chronic_conditions')">Edit</button>
+               </div>
+               <div class="info-card">
+                   <h3>Current Medications</h3>
+                   <p id="patient-current_medications">{{ patient.current_medications }}</p>
+                   <button class="edit-btn" onclick="editInfo('current_medications')">Edit</button>
+               </div>
+           </div>
+       </section>
+
+       <!-- Modal for Editing Information -->
+       <div id="editModal" class="modal-overlay">
+           <div class="modal-content">
+               <div class="modal-header">Edit Information</div>
+               <form id="edit-form">
+                   <input type="text" id="edit-field" placeholder="Enter new information" required />
+                   <button type="submit">Save</button>
+               </form>
+               <span class="modal-close" onclick="closeModal()">X</span>
+           </div>
+       </div>
+
+       <!-- Modal for Editing Profile Picture -->
+       <div id="photoModal" class="modal-overlay">
+           <div class="modal-content">
+               <div class="modal-header">Change Profile Picture</div>
+               <form id="photo-form">
+                   <input type="file" id="profile-picture" required />
+                   <button type="submit">Upload</button>
+               </form>
+               <span class="modal-close" onclick="closePhotoModal()">X</span>
+           </div>
+       </div>
+
+   </main>
+
+   <script src="{% static 'core/js/patient_profile.js' %}"></script>
+   <script src="{% static 'core/js/dashboard.js' %}"></script>
+</body>
+</html>

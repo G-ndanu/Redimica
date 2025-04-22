@@ -1,0 +1,91 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E6F7E6;
+    color: #333;
+    margin: 80px auto;
+    padding: 0;
+    text-align: center; /* Centers the whole body content */
+}
+
+.telehealth-container {
+    width: 100%;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    text-align: left; /* Ensures content inside the container is left-aligned */
+}
+
+/* Title Styling */
+h2 {
+    font-size: 24px; /* Increased size for better visibility */
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 25px; /* Increased spacing below the title */
+    text-align: center; /* Centers the h2 title */
+}
+
+h3 {
+    color: #2c3e50;
+    border-bottom: 2px solid #0cc0df;
+    padding-bottom: 5px;
+    margin-bottom: 20px; /* Adds spacing below the h3 */
+    text-align: center; /* Centers the h3 title */
+}
+
+/* Appointment Cards */
+.stat-card, .appointment-card {
+    background: #e0f7ff;
+    padding: 20px;
+    border-left: 5px solid #0cc0df;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Increased margin between cards */
+}
+
+.appointment-card p {
+    margin: 10px 0; /* Adds more spacing between paragraph items */
+}
+
+/* Buttons */
+.join-btn {
+    display: inline-block;
+    background: #50a41c;
+    color: #ffffff;
+    padding: 12px 20px; /* Increased padding for a bigger button */
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+    text-align: center; /* Centers text inside the button */
+}
+
+.join-btn:hover {
+    background: #0cc0df;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .telehealth-container {
+        width: 95%;
+    }
+    
+    .join-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    h2 {
+        font-size: 22px; /* Adjust size for smaller screens */
+        margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+
+    h3 {
+        font-size: 20px; /* Adjust h3 size for better readability */
+        margin-bottom: 15px; /* Adjust margin for smaller screens */
+    }
+}

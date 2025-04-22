@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Journal | Redimica</title>
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/patient/patient.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/patient/health_journal.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    {% include "core/dashboard/patient/includes/header.html" %}
+
+    <div class="journal-container">
+        <h2>Health Journal</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.symptom.label_tag }} {{ form.symptom }}</p>
+            
+            <p>{{ form.condition.label_tag }} {{ form.condition }}</p>
+
+            <p>
+                {{ form.pain_severity.label_tag }} 
+                {{ form.pain_severity }}
+                <span id="painValue">5</span> / 10
+            </p>
+
+            <p>{{ form.details.label_tag }} {{ form.details }}</p>
+            <p>{{ form.attachment.label_tag }} {{ form.attachment }}</p>
+
+            <button type="submit">Log Entry</button>
+        </form>
+        
+        <hr>
+
+        <h3>Journal Entries</h3>
+        <div id="journal-entries">
+            {% for entry in entries %}
+            <div class="entry">
+                <strong><i class="fa-solid fa-calendar-day"></i> {{ entry.date_time|date:"M d, Y h:i A" }} - {{ entry.symptom }}</strong>
+                
+                <div class="meta">
+                    <i class="fa-solid fa-temperature-half"></i> Pain Severity: {{ entry.pain_severity }} / 10
+                    <span class="condition">
+                        <i class="fa-solid fa-stethoscope"></i> Condition: {{ entry.condition }}
+                    </span>
+                </div>
+                
+                <div class="details">{{ entry.details }}</div>
+             
+                {% if entry.attachment %}
+                    <div class="attachment">
+                        📎 <a href="{{ entry.attachment.url }}" target="_blank">Download Attachment</a>
+                    </div>
+                {% endif %}
+             
+                {% if entry.doctor_feedback %}
+                    <div class="feedback">
+                        <strong><i class="fa-solid fa-user-doctor"></i> Doctor Feedback:</strong>
+                        {{ entry.doctor_feedback }}
+                    </div>
+                {% endif %}
+             </div>             
+            <hr>
+
+            {% empty %}
+                <p>No entries yet.</p>
+            {% endfor %}
+        </div>
+    
+    </div>
+
+    <script src="{% static 'core/js/dashboard.js' %}"></script>
+    <script src="{% static 'core/js/health_journal.js' %}"></script>
+</body>
+</html>

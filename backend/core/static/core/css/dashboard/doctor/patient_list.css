@@ -1,0 +1,182 @@
+/* Container for the patient list */
+.container {
+   width: 90%;
+   max-width: 900px;
+   margin: 80px auto;
+   background-color: #ffffff;
+   border-radius: 16px;
+   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+   padding: 40px;
+   transition: all 0.3s ease;
+}
+
+.container:hover{
+   transform: scale(1.01);
+}
+
+.patient-list {
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+  gap: 20px;
+}
+
+.patient-entry {
+  background: #e0f7ff;
+  border-left: 6px solid #0cc0df;
+  padding: 20px 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px; /* Constrain width */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.patient-entry:hover {
+  transform: translateY(-3px);
+}
+
+.patient-entry p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.patient-entry strong {
+  font-weight: 600;
+  color: #0b4c5f;
+}
+
+.patient-entry .feedback {
+  background-color: #E6F7E6;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #50a41c;
+  font-size: 14.5px;
+  margin-top: 15px;
+}
+
+.patient-entry .feedback strong {
+  color: #50a41c;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Modern buttons (matching your green/blue style) */
+.patient-entry a.btn {
+  display: inline-block;
+  margin-top: 12px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #50a41c; /* Your green */
+}
+
+.btn-primary:hover {
+  background-color: #0cc0df; /* Light blue */
+}
+
+.btn-secondary {
+  background-color: #50a41c;
+}
+
+.btn-secondary:hover {
+  background-color: #0cc0df;
+}
+
+
+/* Search Bar Style */
+.search-bar {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 20px;
+   border-radius: 8px;
+   border: 1px solid #ccc;
+   font-size: 16px;
+   box-sizing: border-box;
+   transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+   border-color: #0cc0df;
+   outline: none;
+}
+
+/* Feedback input area */
+.feedback-area {
+   padding: 15px;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   background-color: #f9f9f9;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   margin-top: 10px;
+   transition: opacity 0.3s ease;
+}
+
+.feedback-area.hidden {
+   display: none;
+}
+
+/* Input area */
+.feedback-input {
+   width: 100%;
+   height: 100px;
+   padding: 12px;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   resize: vertical;
+   font-size: 14px;
+   margin-bottom: 10px;
+   box-sizing: border-box;
+   background-color: #fff;
+}
+
+/* Save button */
+.save-feedback-btn {
+   background-color: #0cc0df;
+   color: white;
+   padding: 12px 18px;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 14px;
+   width: 100%;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-feedback-btn:hover {
+   background-color: #50a41c;
+   transform: translateY(-2px);
+}
+
+/* Feedback button (Add feedback) */
+.add-feedback-btn {
+   background-color: #0cc0df;
+   color: white;
+   padding: 12px 18px;
+   border: none;
+   border-radius: 8px;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-feedback-btn:hover {
+   background-color: #50a41c;
+   transform: translateY(-2px);
+}
+
+
+

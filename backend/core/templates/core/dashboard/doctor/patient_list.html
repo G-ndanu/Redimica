@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients | Redimica </title>
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/doctor.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/patient_list.css' %}">
+
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    {% include "core/dashboard/doctor/includes/header.html" %}
+
+    <input type="hidden" id="csrf-token" value="{{ csrf_token }}">
+
+    <div class="container">
+        <h2>Patient List</h2>
+    
+        <!-- Search Bar for filtering patients -->
+        <input type="text" id="searchBar" placeholder="Search by Patient Name..." class="search-bar" onkeyup="filterPatients()" />
+    
+        <div class="patient-list">
+            {% for data in patient_data %}
+                <div class="patient-entry">
+                    <p><strong>Patient:</strong> {{ data.patient.first_name }} {{ data.patient.last_name }}</p>
+                    <p><strong>Condition:</strong> {{ data.entry.condition }}</p> 
+                    <p><strong>Symptom:</strong> {{ data.entry.symptom }}</p>
+                    <p><strong>Severity:</strong> {{ data.entry.pain_severity }}</p>
+                    <p><strong>Details:</strong> {{ data.entry.details }}</p>
+    
+                    {% if data.entry.doctor_feedback %}
+                    <div class="feedback">
+                        <strong>Doctor's Feedback:</strong>
+                        {{ data.entry.doctor_feedback }}
+                    </div>
+                    {% endif %}
+    
+                    <!-- Feedback area will be hidden initially -->
+                    <div class="feedback-area hidden">
+                        <textarea class="feedback-input" placeholder="Add your feedback here..."></textarea>
+                        <button class="save-feedback-btn">Save Feedback</button>
+                    </div>
+    
+                    <!-- Add Feedback Button -->
+                    <button class="add-feedback-btn" data-id="{{ data.entry.id }}">Add Feedback</button>
+    
+                    {% if data.entry.pain_severity > 6 %}
+                        <a href="{% url 'doctor_virtual_consultations' %}?patient_id={{ data.patient.id }}" class="btn btn-primary">Schedule Consultation</a>
+                    {% endif %}
+                    <a href="{% url 'doctor_messages' %}?patient_id={{ data.patient.id }}" class="btn btn-secondary">Message Patient</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+    <script src="{% static 'core/js/dashboard.js' %}"></script>
+    <script src="{% static 'core/js/patient_list.js' %}"></script>
+</body>
+</html>

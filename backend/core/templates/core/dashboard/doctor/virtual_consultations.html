@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telehealth | Redimica</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/doctor.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/doctor/telehealth.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Google Meet API Script -->
+    <script src="https://apis.google.com/js/api.js"></script>
+</head>
+<body>
+    {% include "core/dashboard/doctor/includes/header.html" %}
+
+    <div class="telehealth-container">
+        <!-- Patient Selection & Consultation Scheduling -->
+        <div class="consultation-card">
+            <h2>Schedule a Consultation</h2>
+
+            <!-- Patient Selection -->
+            <div class="search-container">
+                <h2>Search for Patient</h2>
+                <form method="GET" action="{% url 'search_patient' %}" class="search-form">
+                    <input type="text" name="q" placeholder="Enter patient name..." value="{{ query }}">
+                    <button type="submit" id="searchPatientBtn">Search</button>
+                </form>                
+
+                <ul>
+                    {% for patient in patients %}
+                        <li>
+                            <a href="#" class="select-patient" data-id="{{ patient.id }}" data-name="{{ patient.user.username }}">
+                                {{ patient.user.username }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Hidden input to store selected patient ID -->
+            <input type="hidden" id="selectedPatientId" name="patient_id">
+            <p class="selected-patient">Selected Patient: <span id="selectedPatientName">None</span></p>
+
+            <!-- Scheduling Form -->
+            <div class="consultation-card">
+                <h2>Schedule Consultation</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="patient_id" id="selectedPatientId">
+                    <label for="consultDate">Select Date:</label>
+                    <input type="date" id="consultDate" name="scheduled_date" required>
+                    <label for="consultTime">Select Time:</label>
+                    <input type="time" id="consultTime" name="scheduled_time" required>
+                    <label for="consultType">Consultation Type:</label>
+                    <select id="consultType" name="consult_type">
+                        <option value="follow-up">Follow-up Consultation</option>
+                        <option value="urgent">Urgent Consultation</option>
+                    </select>
+                    <label for="consultCondition">Condition:</label>
+                    <input type="text" id="consultCondition" name="condition" placeholder="Enter patient condition..." required>
+                    <button type="button" id="scheduleBtn">Schedule Consultation</button>
+                </form>
+                
+            </div>
+        </div>
+
+        <div class="appointments-container">
+            <h2>Upcoming Appointments</h2>
+            <div id="upcomingAppointments"></div>
+        </div>
+        
+        <div class="appointments-container">
+            <h2>Past Consultations</h2>
+            <div id="pastAppointments"></div>
+        </div>
+        
+        <!-- Feedback area will appear here when button is clicked -->
+        <div class="feedback-area hidden">
+            <textarea class="feedback-input" placeholder="Add your feedback here..."></textarea>
+            <button class="save-feedback-btn">Save Feedback</button>
+        </div>       
+
+    </div>
+
+    <script src="{% static 'core/js/dashboard.js' %}"></script>
+    <script src="{% static 'core/js/telehealth.js' %}"></script>
+</body>
+</html>

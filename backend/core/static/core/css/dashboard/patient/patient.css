@@ -1,0 +1,475 @@
+/* General Styling */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Arial', sans-serif;
+}
+
+body {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   background: #E6F7E6;
+}
+
+/* HEADER */
+.top-bar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: #bfeffa;
+   color: #50a41c;
+   padding: 15px 20px;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   height: 60px;
+   z-index: 1000;
+}
+
+/* Toggle Button */
+.toggle-btn {
+   display: block !important;
+   visibility: visible !important;
+   background: none;
+   border: none;
+   color: #50a41c;
+   font-size: 24px;
+   cursor: pointer;
+}
+
+
+/* Navigation Menu */
+.nav-menu {
+   display: block !important;
+   visibility: visible !important;
+   position: fixed;
+   top: 60px; /* Below the header */
+   left: 0;
+   width: 230px;
+   height: calc(100vh - 60px);
+   background: #bfeffa;
+   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+   padding-top: 20px;
+   transform: translateX(-100%);
+   transition: transform 0.3s ease-in-out;
+   z-index: 1500; /* Ensure it appears above other content */
+
+}
+
+/* Show menu when active */
+.nav-menu.active {
+   transform: translateX(0);
+}
+
+/* Navigation Links */
+.nav-menu ul {
+   list-style: none;
+   padding: 0;
+}
+
+.nav-menu li {
+   padding: 12px 20px;
+}
+
+.nav-menu a {
+   text-decoration: none;
+   color: black;
+   font-size: 16px;
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   transition: background 0.3s;
+}
+
+.nav-menu a i {
+   color: #50a41c;
+}
+
+/* Hover effect */
+.nav-menu a:hover {
+   background: #0cc0df;
+   border-radius: 5px;
+   padding: 10px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+   padding: 80px 40px; /* Increased padding for better spacing */
+   width: 100%;
+}
+
+/* SEARCH BAR */
+.search-bar {
+   display: flex;
+   align-items: center;
+   background: white;
+   padding: 5px;
+   border-radius: 5px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+   padding: 8px;
+   border: none;
+   outline: none;
+   width: 200px;
+   border-radius: 5px 0 0 5px;
+   font-size: 14px;
+}
+
+.search-bar button {
+   background: #50a41c;
+   border: none;
+   padding: 8px 12px;
+   cursor: pointer;
+   border-radius: 0 5px 5px 0;
+   color: white;
+   transition: background 0.3s ease;
+}
+
+.search-bar button:hover {
+   background: #0cc0df;
+}
+
+/* TOP ICONS */
+.top-icons {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+}
+
+/* Bell Icon */
+.top-icons i {
+   font-size: 20px;
+   cursor: pointer;
+   color: #50a41c;
+   transition: color 0.3s ease;
+}
+
+.top-icons i:hover {
+   color: #0cc0df;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+   position: relative;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   background: #50a41c;
+   color: white;
+   font-size: 20px;
+   transition: background 0.3s ease;
+}
+
+.profile-dropdown i {
+   color: #e0f7ff;
+   font-size: 15px;
+   cursor: pointer;
+}
+
+/* Hover Effect */
+.profile-dropdown:hover {
+   background: black;
+
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+   display: none;
+   position: absolute;
+   top: 50px;
+   right: 0;
+   background: white;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   border-radius: 8px;
+   list-style: none;
+   padding: 8px 0;
+   min-width: 180px;
+   opacity: 0;
+   transform: translateY(-5px);
+   transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Show dropdown when active */
+.profile-dropdown.active .dropdown-menu {
+   display: block;
+   opacity: 1;
+   transform: translateY(0);
+}
+
+/* Dropdown Items */
+.dropdown-menu li {
+   padding: 12px 15px;
+   text-align: left;
+   cursor: pointer;
+   transition: background 0.3s ease;
+   color: #2c3e50;
+   font-size: 14px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+/* Icons inside dropdown */
+.dropdown-menu li i {
+   color: #50a41c;
+   font-size: 16px;
+}
+
+/* Hover Effect */
+.dropdown-menu li:hover {
+   background: #e0f7ff;
+}
+
+/* Dropdown Links */
+.dropdown-menu li a {
+   text-decoration: none;
+   color: #333;
+   width: 100%;
+   display: block;
+   font-weight: 500;
+}
+
+/* Add slight padding to links */
+.dropdown-menu li a {
+   padding: 5px 0;
+}
+
+.notification-wrapper {
+   position: relative;
+   display: inline-block;
+}
+.notification-dropdown {
+   display: none;
+   position: absolute;
+   right: 0;
+   background: white;
+   width: 250px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   border-radius: 5px;
+   padding: 10px;
+   z-index: 1000;
+}
+.notification-dropdown ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+.notification-dropdown li {
+   padding: 8px;
+   border-bottom: 1px solid #ddd;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.notification-dropdown li button {
+   background: none;
+   border: none;
+   color: red;
+   cursor: pointer;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+   width: 90%;  /* Makes it take almost the full width */
+   max-width: none;  /* Removes the 1200px restriction */
+   margin: 80px auto;  /* Centers it and provides spacing from the header */
+   padding: 20px;
+   background: white;
+}
+
+/* Welcome Message */
+.welcome-message {
+   background: #bfeffa;
+   color: #333;
+   padding: 15px 20px;
+   border-radius: 8px;
+   font-size: 18px;
+   text-align: center;
+   font-weight: bold;
+}
+
+/* Quick Stats Section */
+.quick-stats {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Grid */
+   gap: 20px;
+   margin-top: 20px;
+}
+
+/* Individual Stat Cards */
+.stat-card {
+   background: linear-gradient(135deg, #bfeffa, #e0f7ff); /* Subtle Gradient */
+   padding: 20px;
+   border-radius: 12px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+   position: relative;
+   overflow: hidden;
+}
+
+/* Hover Effect */
+.stat-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Icons */
+.stat-card i {
+   font-size: 32px;
+   color: #50a41c;
+   background: white;
+   padding: 10px;
+   border-radius: 50%;
+   margin-bottom: 10px;
+}
+
+/* Headings */
+.stat-card h3 {
+   font-size: 18px;
+   color: #2c3e50;
+   margin-bottom: 8px;
+}
+
+/* Card Text */
+.stat-card p {
+   font-size: 16px;
+   font-weight: bold;
+   color: #555;
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+   background: #e0f7ff;
+   border-radius: 8px;
+   height: 10px;
+   width: 100%;
+   margin-top: 8px;
+   overflow: hidden;
+   position: relative;
+}
+
+.progress-fill {
+   height: 100%;
+   background: #50a41c;
+   border-radius: 8px;
+   text-align: right;
+   padding-right: 8px;
+   font-size: 10px;
+   font-weight: bold;
+   color: black;
+   line-height: 10px;
+}
+
+
+/* Recent Activity */
+.recent-activity {
+   width: 100%;
+   margin-top: 30px;
+   background:#e0f7ff;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title */
+.recent-activity h2 {
+   font-size: 22px;
+   color: #2c3e50;
+   margin-bottom: 15px;
+}
+
+/* Remove default bullets from list */
+.recent-activity ul {
+   list-style: none; /* ✅ Removes bullets */
+   padding: 0;
+   margin: 0;
+}
+
+/* Individual Activity Items */
+.recent-activity li {
+   display: flex;
+   align-items: center;
+   background: #f9f9f9;
+   padding: 12px;
+   margin-bottom: 10px;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+   transition: transform 0.2s ease-in-out;
+   font-size: 16px;
+   color: #555;
+}
+
+/* Hover effect */
+.recent-activity li:hover {
+   background: #bfeffa;
+   transform: scale(1.02);
+}
+
+/* Proper spacing between emoji/icon and text */
+.recent-activity li::before {
+   content: ""; /* Removes default bullet points */
+   display: inline-block;
+   width: 25px; /* Reserve space for emojis */
+}
+
+
+/* Dashboard Actions Section */
+.dashboard-actions {
+   display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+/* General Button Styling */
+.dashboard-actions .btn {
+   background: #50a41c;
+   color: white;
+   border: none;
+   padding: 12px 20px;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   font-size: 16px;
+   text-decoration: none;
+   text-align: center;
+   font-weight: bold;
+   text-transform: uppercase;
+   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px; /* Space between icon and text */
+   min-width: 200px;
+}
+
+/* Hover Effect */
+.dashboard-actions .btn:hover {
+   background: #0cc0df;
+   transform: scale(1.05);
+}
+
+/* Individual Button Styles */
+.dashboard-actions .add-entry {
+   background: #50a41c; /* Primary Green */
+}
+
+.dashboard-actions .view-log {
+   background: #0cc0df; /* Light Blue */
+}
+
+/* Icons */
+.dashboard-actions .btn i {
+   font-size: 18px;
+}

@@ -1,0 +1,44 @@
+{% load static %}
+<header class="top-bar">
+    <button class="toggle-btn"><i class="fas fa-bars"></i></button>
+<!-- 
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+    </div> -->
+
+
+    <div class="top-icons">
+        <!-- <div class="notification-wrapper">
+            <i class="fas fa-bell" id="notification-bell"></i>
+            <div class="notification-dropdown" id="notification-dropdown">
+                <p class="no-reminders">No new reminders</p>
+                <ul id="reminder-list"></ul>
+            </div>
+        </div> -->
+
+
+        <div class="profile-dropdown">
+            <i class="fas fa-user"></i>  
+            <ul class="dropdown-menu">
+                <li><i class="fas fa-user-circle"></i> <a href="{% url 'patient-profile' %}">Profile</a></li>
+                <li><i class="fas fa-sign-out-alt"></i> <a href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
+</header>
+
+
+<!-- Hidden Navigation Menu -->
+<nav class="nav-menu">
+    <ul>
+        <!-- <li><a href="{% url 'patient_dashboard' %}"><i class="fas fa-home"></i> Dashboard</a></li> -->
+        <li><a href="{% url 'patient_health_journal' %}"><i class="fas fa-book"></i> Health Journal</a></li>
+        <li><a href="{% url 'patient_messages' %}"><i class="fas fa-comments"></i> Messaging</a></li>
+        <li><a href="{% url 'patient_virtual_visits' %}"><i class="fas fa-video"></i> Virtual Visits</a></li>
+        
+        <li class="divider"></li>
+        <li><a href="{% url 'logout' %}" class="logout"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+    </ul>
+</nav>

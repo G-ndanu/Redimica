@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | Redimica</title>
+    
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{% static 'core/css/dashboard/patient/patient.css' %}">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+   {% include "core/dashboard/patient/includes/header.html" %}
+
+   <main class="dashboard-container">
+        <section class="welcome-section">
+            <h1>Welcome back, <span id="patient-name">[Patient Name]</span>!</h1>
+            <p class="health-tip">💡 Health Tip: Stay hydrated! Drink at least 8 glasses of water today. </p>
+        </section>
+
+        <section class="quick-stats">
+            <div class="stat-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Upcoming Appointment</h3>
+                <p>No upcoming appointments.</p>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Unread Messages</h3>
+                <p>2 New Messages</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-notes-medical"></i>
+                <h3>Latest Feedback</h3>
+                <p>"Continue with the prescribed medication"</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Treatment Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;">75%</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-activity">
+            <h2>Recent Activity</h2>
+            <ul>
+                <li>📝 Logged a health journal entry - "Mild headache at noon."</li>
+                <li>💬 New message from Dr. Smith - "Let's schedule a follow-up."</li>
+                <li>⏳ Reminder: Take your blood pressure medication at 8:00 PM.</li>
+            </ul>
+        </section>
+
+        <section class="dashboard-actions">
+            <button class="btn add-entry"><i class="fas fa-plus"></i> Add New Entry</button>
+            <button class="btn view-log"><i class="fas fa-book"></i> View Health Log</button>
+        </section>
+   </main>
+
+
+    <!-- Link JavaScript -->
+    <script src="{% static 'core/js/dashboard.js' %}"></script>
+    <script src="{% static 'core/js/telehealth.js' %}"></script>
+
+</body>
+</html>
